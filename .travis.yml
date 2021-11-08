@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t yothinp/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true yothinp/docker-react run test
